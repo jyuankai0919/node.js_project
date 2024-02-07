@@ -1,43 +1,42 @@
+// 引入所需模塊和套件
 const express = require('express');
-const app = express();
-const port = 3000;
-
-// 引入mongoose
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+require('dotenv').config(); // 加載環境變量
 
-// 設定router
-const bookRouter = require('./router/book.js'); // . ->當前目錄
+const app = express();
+const port = process.env.PORT || 3000; // 使用環境變量設定端口，沒有則默認為3000
+
+// 引入路由
+const bookRouter = require('./router/book.js');
 const aboutRouter = require('./router/about.js');
-const aboutRouter = require('./router/user.js');
+const authRouter = require('./router/auth');
 
-// 引入dotenv
-require('dotenv').config();
-
-// Body Parser Middleware
+// 使用body-parser中間件來解析請求體
 app.use(bodyParser.json());
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Connected to MongoDB...'))
-    .catch(err => console.error('Could not connect to MongoDB...', err));
+// 連接到MongoDB
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => console.log('Connected to MongoDB...'))
+.catch(err => console.error('Could not connect to MongoDB...', err));
 
+// 設置靜態文件目錄
+app.use(express.static('public'));
 
-// 首頁ruter
+// 定義路由
+// 首頁路由
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-// console.log
+// 書籍和關於頁面的路由
+app.use('/book', bookRouter);
+app.use('/about', aboutRouter);
+
+// 認證（登入和註冊）的API路由
+app.use('/api/auth', authRouter);
+
+// 啟動服務器
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
-
-// Serve static files from the "public" directory
-app.use(express.static('public'));
-
-// 使用router
-app.use('/book', bookRouter);
-app.use('/about', aboutRouter);
-app.use('/api/users', require('./route/user'));

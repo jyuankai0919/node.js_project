@@ -1,14 +1,9 @@
 // 引入router
 const express = require('express');
 const router = express.Router();
+const aboutController = require('../controllers/aboutController');
 
-router.get('/', (req, res) => {
-    res.send('there is no about here :( ');
-});
-
-router.get('/detail', (req, res) => {
-    let name = req.query.name;
-    res.send(`there is no ${name} detail here :(`);
-});
+router.get('/', aboutController.showAbout);
+router.get('/detail', aboutController.showDetail);
 
 module.exports = router;
