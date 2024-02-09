@@ -1,50 +1,77 @@
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 .menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
 
 .menu li {
-    float: left;
+  float: left;
 }
 
 .menu li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 .menu li a:hover {
-    background-color: #111;
+  background-color: #111;
 }
 
 .right {
-    float: right;
+  float: right;
 }
 
 .welcome-message {
-    opacity: 0; /* 初始設置為透明 */
-    font-size: 2em; /* 設置字體大小 */
-    color: #000; /* 設置字體顏色 */
-    animation: fadeInAnimation ease 3s; /* 指定動畫 */
-    animation-iteration-count: 1; /* 動畫播放一次 */
-    animation-fill-mode: forwards; /* 保持動畫結束時的樣式 */
+  opacity: 0; /* 初始設置為透明 */
+  font-size: 2em; /* 設置字體大小 */
+  color: #000; /* 設置字體顏色 */
+  animation: fadeInAnimation ease 3s; /* 指定動畫 */
+  animation-iteration-count: 1; /* 動畫播放一次 */
+  animation-fill-mode: forwards; /* 保持動畫結束時的樣式 */
 }
 
 /* 定義淡入動畫 */
 @keyframes fadeInAnimation {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .navbar-nav .nav-link {
-    margin-right: 1rem; /* 根據需要調整間距 */
+  margin-right: 1rem; /* 根據需要調整間距 */
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 這裡使用flex布局來使內容垂直和水平居中 */
+  height: 100vh; /* 使用視口高度來確保容器充滿整個屏幕 */
+  padding-top: -100px; /* 根據需要微調位置 */
+}
+
+.container {
+  background-color: #f8f9fa; /* 給表單容器一個背景色 */
+  padding: 20px;
+  border-radius: 8px; /* 添加圓角效果 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+  width: 100%; /* 或設置一個固定的寬度，例如width: 400px; */
+  max-width: 400px; /* 確保容器在大屏幕上不會過寬 */
 }

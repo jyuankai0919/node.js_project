@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <%- include('partials/head', { title: '註冊 - 我的網站' }) %>
+  <script src="/script/register.js"></script>
+
+  <body>
+    <div class="login-container">
+      <!-- 使用與登入畫面相同的容器類 -->
+      <div class="container">
+        <h2>註冊</h2>
+        <form id="registerForm">
+          <div class="mb-3">
+            <label for="email" class="form-label">電子郵件地址</label>
+            <input type="email" class="form-control" id="email" required />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">密碼</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              required
+            />
+          </div>
+          <button type="button" id="registerBtn" class="btn btn-primary">
+            註冊
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
