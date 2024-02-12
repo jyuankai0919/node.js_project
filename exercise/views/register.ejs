@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
   <%- include('partials/head', { title: '註冊 - 我的網站' }) %>
-  <script src="/script/register.js"></script>
-
   <body>
+    <%- include('partials/menuBar', { title: '註冊 - 我的網站' }) %>
     <div class="login-container">
       <!-- 使用與登入畫面相同的容器類 -->
       <div class="container">
@@ -28,5 +27,8 @@
         </form>
       </div>
     </div>
+    <script src="/script/register.js"></script>
   </body>
 </html>
+
+

@@ -2,26 +2,7 @@
 <html lang="zh-TW">
 <%- include('partials/head', { title: '註冊 - 我的網站' }) %>
 <body>
-    <header>
-        <!-- 使用 Bootstrap 的導航條 -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <!-- 導航條左側 -->
-                <div class="navbar-nav me-auto">
-                    <a class="nav-link" href="/book">賣場</a>
-                    <a class="nav-link" href="/about">關於我們</a>
-                </div>
-                <!-- 歡迎消息 -->
-                <a class="navbar-brand mx-auto welcome-message" href="/">Welcome</a>
-                <!-- 導航條右側 -->
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="/login">登入</a>
-                    <a class="nav-link" href="/register">註冊</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-    
+    <%- include('partials/menuBar', { title: '註冊 - 我的網站' }) %>
     <main class="container">
         <h1>歡迎來到我的網站</h1>
         <p>這是我的網站，歡迎來到這裡。</p>

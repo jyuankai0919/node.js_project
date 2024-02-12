@@ -64,7 +64,7 @@ html {
   justify-content: center;
   align-items: center; /* 這裡使用flex布局來使內容垂直和水平居中 */
   height: 100vh; /* 使用視口高度來確保容器充滿整個屏幕 */
-  padding-top: -100px; /* 根據需要微調位置 */
+  padding-top: -70px; /* 根據需要微調位置 */
 }
 
 .container {

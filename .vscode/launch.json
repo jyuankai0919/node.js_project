@@ -5,10 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
-            "name": "http://aboutRouter",
+            "type": "node",
+            "name": "啟動APP",
             "request": "launch",
-            "url": "http://aboutRouter"
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/app.js" // 確保這裡的路徑指向你的主應用文件
         }
     ]
 }

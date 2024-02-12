@@ -3,7 +3,7 @@ document.getElementById('registerBtn').addEventListener('click', function() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    fetch('/Api/register', { // 確保這個URL與你的後端路由匹配
+    fetch('/auth/Api/register', { // 確保這個URL與你的後端路由匹配
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
