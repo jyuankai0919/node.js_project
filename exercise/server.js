@@ -3,8 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const routes = require('./router/index'); // 引入中央路由處理器
+
+// 只有在本地開發時，才需要加載.env文件
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config({ path: path.resolve(__dirname, './.env') });
+}
 
 const app = express();
 const port = process.env.PORT || 3000; // 使用環境變量設定端口，沒有則默認為3000
