@@ -1,9 +1,9 @@
 // 建立router
-const express = require('express');
-const router = express.Router();
-const bookController = require('../controllers/bookController');
+import { Router } from 'express';
+const router = Router();
+import { showBooks, showPage } from '../controllers/bookController.js';
 
-router.get('/', bookController.showBooks);
-router.get('/page', bookController.showPage);
+router.get('/', showBooks);
+router.get('/page', showPage);
 
-module.exports = router;
+export default router;

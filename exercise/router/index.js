@@ -1,6 +1,6 @@
 // router/index.js
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
 // 使用EJS渲染首頁
 router.get('/', (req, res) => {
@@ -18,13 +18,13 @@ router.get('/register', (req, res) => {
 });
 
 // 引入各個模塊的路由
-const aboutRouter = require('./about');
-const bookRouter = require('./book');
-const authRouter = require('./auth');
+import aboutRouter from './about.js';
+import bookRouter from './book.js';
+import authRouter from './auth.js';
 
 // 使用這些路由
 router.use('/about', aboutRouter);
 router.use('/book', bookRouter);
 router.use('/auth', authRouter);
 
-module.exports = router;
+export default router;

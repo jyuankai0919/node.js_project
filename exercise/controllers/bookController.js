@@ -1,8 +1,8 @@
 // controllers/bookController.js
-exports.showBooks = (req, res) => {
+export function showBooks(req, res) {
     res.send('there is no book here :(');
-};
+}
 
-exports.showPage = (req, res) => {
+export function showPage(req, res) {
     res.send(`there is no page here :(`);
-};
+}

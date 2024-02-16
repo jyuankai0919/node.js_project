@@ -1,5 +1,5 @@
 // app.js
-const path = require('path');
+import path from 'path';
 
 // 使用相對路徑引入server.js
-require('./exercise/server');
+import './exercise/server.js';

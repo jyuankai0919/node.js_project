@@ -1,6 +1,6 @@
-const { execSync } = require('child_process');
-const fetch = require('node-fetch');
-const crypto = require('crypto');
+import { execSync } from 'child_process';
+import fetch from 'node-fetch';
+import { createHash, randomBytes } from 'crypto';
 
 // 用於執行shell命令獲取當前公網IP
 const getPublicIP = () => {
@@ -81,9 +81,9 @@ async function fetchWithDigestAuth(url, options = {}, username, password) {
 }
 
 function generateAuthHeader(authDetails, username, password, method, uri) {
-    const ha1 = crypto.createHash('md5').update(`${username}:${authDetails.realm}:${password}`).digest('hex');
-    const ha2 = crypto.createHash('md5').update(`${method}:${uri}`).digest('hex');
-    const response = crypto.createHash('md5').update(`${ha1}:${authDetails.nonce}:${ha2}`).digest('hex');
+    const ha1 = createHash('md5').update(`${username}:${authDetails.realm}:${password}`).digest('hex');
+    const ha2 = createHash('md5').update(`${method}:${uri}`).digest('hex');
+    const response = createHash('md5').update(`${ha1}:${authDetails.nonce}:${ha2}`).digest('hex');
 
     let authHeader = `Digest username="${username}", realm="${authDetails.realm}", nonce="${authDetails.nonce}", uri="${uri}", response="${response}"`;
 
@@ -98,8 +98,8 @@ function generateAuthHeader(authDetails, username, password, method, uri) {
     if (authDetails.qop) {
         // 假設qop="auth"，nonceCount固定為"00000001"，cnonce為隨機生成的字符串
         const nonceCount = '00000001';
-        const cnonce = crypto.randomBytes(16).toString('hex');
-        const responseWithQop = crypto.createHash('md5').update(`${ha1}:${authDetails.nonce}:${nonceCount}:${cnonce}:${authDetails.qop}:${ha2}`).digest('hex');
+        const cnonce = randomBytes(16).toString('hex');
+        const responseWithQop = createHash('md5').update(`${ha1}:${authDetails.nonce}:${nonceCount}:${cnonce}:${authDetails.qop}:${ha2}`).digest('hex');
         authHeader = `Digest username="${username}", realm="${authDetails.realm}", nonce="${authDetails.nonce}", uri="${uri}", qop=${authDetails.qop}, nc=${nonceCount}, cnonce="${cnonce}", response="${responseWithQop}", opaque="${authDetails.opaque}"`;
     }
 

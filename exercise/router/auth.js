@@ -1,12 +1,12 @@
 // router/auth.js
-const express = require('express');
-const router = express.Router();
-const authApiController = require('../controllers/API/authController');
-const authController = require('../controllers/authController');
+import { Router } from 'express';
+const router = Router();
+import { register, login } from '../controllers/API/authController.js';
+import { registerIndex, loginIndex } from '../controllers/authController.js';
 
-router.get('/register', authController.registerIndex);
-router.get('/login', authController.loginIndex);
-router.post('/Api/register', authApiController.register);
-router.post('/Api/login', authApiController.login);
+router.get('/register', registerIndex);
+router.get('/login', loginIndex);
+router.post('/Api/register', register);
+router.post('/Api/login', login);
 
-module.exports = router;
+export default router;
