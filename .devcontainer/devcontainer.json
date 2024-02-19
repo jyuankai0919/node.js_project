@@ -1,1 +1,17 @@
-{"image":"mcr.microsoft.com/devcontainers/universal:2"}
+{
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"MS-CEINTL.vscode-language-pack-zh-hant",
+				"ms-azuretools.vscode-docker",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"GitHub.vscode-pull-request-github",
+				"mongodb.mongodb-vscode",
+				"christian-kohler.npm-intellisense",
+				"ms-vscode.js-debug-nightly"
+			]
+		}
+	}
+}
