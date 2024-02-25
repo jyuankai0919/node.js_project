@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node ./exercise/updateAtlasWhitelist.js && node app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "mongoose": "^8.1.1",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^3.3.2",
+    "vue": "^3.4.19"
   }
 }

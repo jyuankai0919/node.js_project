@@ -9,12 +9,6 @@ import routes from './router/index.js'; // 引入中央路由處理器
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// 只有在本地開發時，才需要加載.env文件
-if (process.env.NODE_ENV !== 'production') {
-  const dotenv = await import('dotenv');
-  dotenv.config();
-}
-
 const app = express();
 const port = process.env.PORT || 3000; // 使用環境變量設定端口，沒有則默認為3000
 

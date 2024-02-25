@@ -9,8 +9,18 @@
             "name": "啟動APP",
             "request": "launch",
             "runtimeExecutable": "npm",
-            "runtimeArgs": ["run-script", "start"],
-            // "program": "${workspaceFolder}/app.js" // 確保這裡的路徑指向你的主應用文件
+            "runtimeArgs": [
+                "run-script",
+                "start"
+            ]
         }
+        // },
+        // {
+        //     "name": "Docker Node.js Launch",
+        //     "type": "docker",
+        //     "request": "launch",
+        //     "preLaunchTask": "docker-run: debug",
+        //     "platform": "node"
+        // }
     ]
 }
